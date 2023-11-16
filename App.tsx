@@ -6,15 +6,8 @@
  */
 
 import React from 'react';
-import {
-  ImageBackground,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-} from 'react-native';
+import {SafeAreaView, ScrollView, StatusBar, StyleSheet} from 'react-native';
 
-import {ButtonList} from './components/ButtonList';
 import {DateList} from './components/DateList';
 import {NavigationContainer} from '@react-navigation/native';
 

@@ -1,58 +1,31 @@
-import React, {useEffect} from 'react';
-import {Dimensions, StyleSheet, Text, TextInput, View} from 'react-native';
-import Animated, {
-  Easing,
-  useSharedValue,
-  withTiming,
-} from 'react-native-reanimated';
+import React from 'react';
+import {StyleSheet, Text, TextInput, View} from 'react-native';
 
 export const CollapsableDates = () => {
   return (
-    <View
-      style={{
-        paddingVertical: 10,
-        borderColor: 'white',
-      }}>
+    <View style={styles.container}>
       <View style={styles.subDateContainer}>
-        <Text style={{color: 'white', flex: 1}}>Nov 10</Text>
+        <Text style={styles.dateLabel}>Nov 10</Text>
         <TextInput
           placeholder="Tap to edit"
           placeholderTextColor={'gray'}
-          style={{
-            flex: 2,
-            borderBottomWidth: 1,
-            borderColor: 'white',
-            flex: 1,
-            color: 'white',
-          }}
+          style={styles.textInput}
         />
       </View>
       <View style={styles.subDateContainer}>
-        <Text style={{color: 'white', flex: 1}}>Nov 11</Text>
+        <Text style={styles.dateLabel}>Nov 11</Text>
         <TextInput
           placeholder="Tap to edit"
           placeholderTextColor={'gray'}
-          style={{
-            flex: 2,
-            borderBottomWidth: 1,
-            borderColor: 'white',
-            flex: 1,
-            color: 'white',
-          }}
+          style={styles.textInput}
         />
       </View>
       <View style={styles.subDateContainer}>
-        <Text style={{color: 'white', flex: 1}}>Nov 12</Text>
+        <Text style={styles.dateLabel}>Nov 12</Text>
         <TextInput
           placeholder="Tap to edit"
           placeholderTextColor={'gray'}
-          style={{
-            flex: 2,
-            borderBottomWidth: 1,
-            borderColor: 'white',
-            flex: 1,
-            color: 'white',
-          }}
+          style={styles.textInput}
         />
       </View>
     </View>
@@ -61,8 +34,14 @@ export const CollapsableDates = () => {
 
 const styles = StyleSheet.create({
   container: {
+    paddingVertical: 10,
+    borderColor: 'white',
+  },
+  textInput: {
+    borderBottomWidth: 1,
+    borderColor: 'white',
     flex: 1,
-    // height: 0,
+    color: 'white',
   },
   title: {
     fontSize: 22,
@@ -72,11 +51,15 @@ const styles = StyleSheet.create({
   },
   subDateContainer: {
     marginHorizontal: 15,
-    paddingVertical: 5,
-    marginTop: 10,
+    paddingVertical: 10,
     borderTopWidth: 2,
     borderColor: 'gray',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  dateLabel: {
+    color: 'white',
+    flex: 1,
   },
 });

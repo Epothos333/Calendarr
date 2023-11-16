@@ -1,16 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {CollapsableDates} from './CollapsableDates';
-import Animated, {
-  Easing,
-  useSharedValue,
-  withSpring,
-  withTiming,
-} from 'react-native-reanimated';
 
-export const EmptyDate = ({date, index}: {date: string; index: number}) => {
-  const height = useSharedValue(0);
-  const opacity = useSharedValue(0);
+export const EmptyDate = ({date}: {date: string}) => {
+  const [show, setShow] = useState(false);
 
   return (
     <View style={styles.container}>
@@ -18,21 +11,16 @@ export const EmptyDate = ({date, index}: {date: string; index: number}) => {
         <Text style={styles.text}>{date}</Text>
         <TouchableOpacity
           onPress={() => {
-            if (height.value === 0) {
-              height.value = withTiming(undefined);
-              opacity.value = withTiming(1, {duration: 500});
-            } else {
-              height.value = withTiming(0);
-              opacity.value = withTiming(0, {duration: 500});
-            }
+            setShow(!show);
           }}>
           <Text style={styles.text}>open</Text>
         </TouchableOpacity>
       </View>
-
-      <Animated.View style={{height, opacity}}>
-        <CollapsableDates />
-      </Animated.View>
+      {show && (
+        <View>
+          <CollapsableDates />
+        </View>
+      )}
     </View>
   );
 };
